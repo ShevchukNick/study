@@ -66,5 +66,33 @@ function login()
         $_SESSION['user']['id']=$user['id'];
         return true;
     }
+}
 
+function add_message()
+{
+    global $pdo;
+    $message = !empty($_POST['message']) ? trim($_POST['message']) : '';
+    if (!isset($_SESSION['user']['name'])) {
+        $_SESSION['errors'] = 'нужна авторизация';
+        return false;
+    }
+    if (empty($message)) {
+        $_SESSION['errors'] = 'ну напишете хоть что то';
+        return false;
+    }
+    $res=$pdo->prepare("INSERT INTO messages (name,message) VALUES (?,?)");
+    if  ($res->execute([$_SESSION['user']['name'],$message])) {
+        $_SESSION['success'] = 'успешная add';
+        return true;
+    } else {
+        $_SESSION['errors'] = 'ошибка add';
+        return false;
+    }
+}
+
+function get_message()
+{
+    global $pdo;
+    $res=$pdo->query("SELECT * FROM messages");
+    return $res->fetchAll();
 }

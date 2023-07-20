@@ -15,11 +15,19 @@ if (isset($_POST['auth'])) {
     header("Location: index.php");
     die;
 }
-if (isset($_GET['do']) && $_GET['do']=='exit') {
+if (isset($_GET['do']) && $_GET['do'] == 'exit') {
     session_destroy();
-    header('location: index.php' );
+    header('location: index.php');
     die;
 }
+
+if (isset($_POST['add'])) {
+    add_message();
+    header('location: index.php');
+    die();
+}
+
+$messages = get_message();
 ?>
 
 <!doctype html>
@@ -36,26 +44,26 @@ if (isset($_GET['do']) && $_GET['do']=='exit') {
 
 <div class="container">
 
-        <div class="row my-3">
-            <div class="col">
-                <?php if (!empty($_SESSION['errors'])): ?>
+    <div class="row my-3">
+        <div class="col">
+            <?php if (!empty($_SESSION['errors'])): ?>
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                     <?= $_SESSION['errors'];
-                    unset($_SESSION['errors'])?>
+                    unset($_SESSION['errors']) ?>
 
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
-                <?php endif; ?>
-                <?php if (!empty($_SESSION['success'])): ?>
+            <?php endif; ?>
+            <?php if (!empty($_SESSION['success'])): ?>
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     <?= $_SESSION['success'];
-                    unset($_SESSION['success'])?>
+                    unset($_SESSION['success']) ?>
 
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
-                <?php endif; ?>
-            </div>
+            <?php endif; ?>
         </div>
+    </div>
 
 
     <?php if (empty($_SESSION['user']['name'])): ?>
@@ -116,7 +124,7 @@ if (isset($_GET['do']) && $_GET['do']=='exit') {
     <?php else: ?>
         <div class="row">
             <div class="col-md-6 offset-md-3">
-                <p>Welcome <?= $_SESSION['user']['name'] ?>!  <a href="?do=exit">log out</a></p>
+                <p>Welcome <?= $_SESSION['user']['name'] ?>! <a href="?do=exit">log out</a></p>
             </div>
         </div>
         <form action="" method="post" class="row g-3 mb-5">
@@ -133,18 +141,20 @@ if (isset($_GET['do']) && $_GET['do']=='exit') {
         </form>
     <?php endif; ?>
 
-        <div class="row">
-            <div class="col-md-6 offset-md-3">
-                <hr>
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <hr>
+            <?php foreach ($messages as $message => $v): ?>
                 <div class="card my-3">
                     <div class="card-body">
-                        <h5 class="card-title">author</h5>
-                        <p class="card-text">text</p>
-                        <p>date</p>
+                        <h5 class="card-title"><?= $v['name'] ?></h5>
+                        <p class="card-text"><?= $v['message'] ?></p>
+                        <p><?= $v['created_at'] ?></p>
                     </div>
                 </div>
-            </div>
+            <?php endforeach; ?>
         </div>
+    </div>
 
 
 </div>
