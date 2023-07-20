@@ -10,6 +10,16 @@ if (isset($_POST['reg'])) {
     die;
 }
 
+if (isset($_POST['auth'])) {
+    login();
+    header("Location: index.php");
+    die;
+}
+if (isset($_GET['do']) && $_GET['do']=='exit') {
+    session_destroy();
+    header('location: index.php' );
+    die;
+}
 ?>
 
 <!doctype html>
@@ -33,7 +43,7 @@ if (isset($_POST['reg'])) {
                     <?= $_SESSION['errors'];
                     unset($_SESSION['errors'])?>
 
-                    <button type="button" class="btn-close" data-bs-dismiss="alert"aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 <?php endif; ?>
                 <?php if (!empty($_SESSION['success'])): ?>
@@ -41,7 +51,7 @@ if (isset($_POST['reg'])) {
                     <?= $_SESSION['success'];
                     unset($_SESSION['success'])?>
 
-                    <button type="button" class="btn-close" data-bs-dismiss="alert"aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 <?php endif; ?>
             </div>
@@ -106,7 +116,7 @@ if (isset($_POST['reg'])) {
     <?php else: ?>
         <div class="row">
             <div class="col-md-6 offset-md-3">
-                <p>Welcome USER!  <a href="?do=exit">log out</a></p>
+                <p>Welcome <?= $_SESSION['user']['name'] ?>!  <a href="?do=exit">log out</a></p>
             </div>
         </div>
         <form action="" method="post" class="row g-3 mb-5">
@@ -135,8 +145,6 @@ if (isset($_POST['reg'])) {
                 </div>
             </div>
         </div>
-
-
 
 
 </div>
