@@ -1,5 +1,15 @@
 <?php
+session_start();
+
 require_once __DIR__ . '/db.php';
+require_once __DIR__ . '/functions.php';
+
+if (isset($_POST['reg'])) {
+    registration();
+    header("Location: index.php");
+    die;
+}
+
 ?>
 
 <!doctype html>
@@ -15,12 +25,35 @@ require_once __DIR__ . '/db.php';
 <body>
 
 <div class="container">
-    <div class="row">
 
-        <div class="col-md-6 offset-md-3">
-            <h3>registration</h3>
+        <div class="row my-3">
+            <div class="col">
+                <?php if (!empty($_SESSION['errors'])): ?>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <?= $_SESSION['errors'];
+                    unset($_SESSION['errors'])?>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"aria-label="Close"></button>
+                </div>
+                <?php endif; ?>
+                <?php if (!empty($_SESSION['success'])): ?>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <?= $_SESSION['success'];
+                    unset($_SESSION['success'])?>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"aria-label="Close"></button>
+                </div>
+                <?php endif; ?>
+            </div>
         </div>
 
+
+    <?php if (empty($_SESSION['user']['name'])): ?>
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h3>registration</h3>
+            </div>
+        </div>
         <form action="" method="post" class="row g-3">
 
             <div class="col-md-6 offset-md-3">
@@ -38,16 +71,16 @@ require_once __DIR__ . '/db.php';
 
             </div>
             <div class="col-md-6 offset-md-3">
-                <button type="submit" class="btn btn-primary">reg</button>
+                <button name="reg" type="submit" class="btn btn-primary">reg</button>
             </div>
 
         </form>
-    </div>
 
 
-    <div class="row mt-3">
-        <div class="col-md-6 offset-md-3">
-            <h3>login</h3>
+        <div class="row mt-3">
+            <div class="col-md-6 offset-md-3">
+                <h3>login</h3>
+            </div>
         </div>
         <form action="" method="post" class="row g-3">
 
@@ -69,12 +102,13 @@ require_once __DIR__ . '/db.php';
             </div>
         </form>
 
+
+    <?php else: ?>
         <div class="row">
             <div class="col-md-6 offset-md-3">
                 <p>Welcome USER!  <a href="?do=exit">log out</a></p>
             </div>
         </div>
-
         <form action="" method="post" class="row g-3 mb-5">
             <div class="col-md-6 offset-md-3">
                 <div class="form-floating">
@@ -87,21 +121,20 @@ require_once __DIR__ . '/db.php';
                 <button name="add" type="submit" class="btn btn-primary">send</button>
             </div>
         </form>
-    </div>
+    <?php endif; ?>
 
-    <div class="row">
-        <div class="col-md-6 offset-md-3">
-            <hr>
-            <div class="card my-3">
-                <div class="card-body">
-                    <h5 class="card-title">author</h5>
-                    <p class="card-text">text</p>
-                    <p>date</p>
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <hr>
+                <div class="card my-3">
+                    <div class="card-body">
+                        <h5 class="card-title">author</h5>
+                        <p class="card-text">text</p>
+                        <p>date</p>
+                    </div>
                 </div>
-
             </div>
         </div>
-    </div>
 
 
 

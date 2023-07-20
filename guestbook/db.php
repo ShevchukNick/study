@@ -12,5 +12,3 @@ $opt = [
 ];
 
 $pdo = new PDO($dsn,$name,$pass,$opt);
-
-var_dump($pdo);
