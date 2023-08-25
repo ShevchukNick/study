@@ -1,0 +1,101 @@
+
+
+/*======================================general==============================================*/
+:root {
+    --bg-color : #020204;
+    --text-color : #fff;
+    --accent-color : #C7A17A;
+}
+
+html,body {
+    height: 100%;
+}
+
+body {
+    min-width: 320px;
+    font-family: 'Jost', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color .3s;
+}
+a:hover,
+a.active {
+    color: var(--accent-color);
+}
+
+.wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.main {
+    flex: 1 1 auto;
+}
+
+/*======================================header==============================================*/
+
+.header nav {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #32323D;
+    background-color: var(--bg-color) !important;
+    position: relative;
+}
+
+.navbar-brand {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.navbar-brand img {
+    max-width: 58px;
+    transition: all .3s;
+}
+
+.navbar-brand:hover img {
+    filter: drop-shadow(0 0 10px #fff);
+}
+
+.header .navbar-nav .nav-link {
+    text-transform: uppercase;
+    color: var(--text-color);
+    padding-left: 17px;
+    padding-right: 17px;
+}
+
+.header .navbar-nav .nav-link:hover,
+.header .navbar-nav .nav-link.active{
+    color: var(--accent-color);
+}
+
+.header-icons {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 25px;
+}
+
+.header-icons li {
+    display: inline-block;
+}
+.header-icons li:not(:first-child){
+    margin-left: 25px;
+}
+
+@media (min-width: 992px) {
+    .header .navbar-nav .nav-item:first-child a {
+        padding-left: 0;
+    }
+}
