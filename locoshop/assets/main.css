@@ -5,6 +5,8 @@
     --bg-color : #020204;
     --text-color : #fff;
     --accent-color : #C7A17A;
+    --accent-color-dark : #A4815E;
+    --grey-color : #DFDFDF
 }
 
 html,body {
@@ -41,6 +43,19 @@ a.active {
 
 .main {
     flex: 1 1 auto;
+}
+
+.btn-warning {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: var(--text-color);
+    transition: all .3s;
+    border-radius: 10px;
+}
+.btn-warning:hover {
+    background-color: var(--accent-color-dark);
+    border-color: var(--accent-color);
+    color: var(--text-color);
 }
 
 /*======================================header==============================================*/
@@ -93,9 +108,78 @@ a.active {
 .header-icons li:not(:first-child){
     margin-left: 25px;
 }
+/*======================================header==============================================*/
+
+
+/*======================================hero-section==============================================*/
+
+.hero-section {
+    background: url("img/hero.png") center no-repeat;
+    background-size:cover ;
+    padding-top: 150px;
+    padding-bottom: 150px;
+}
+.hero-section-content {
+    width: 50%;
+    background: var(--bg-color);
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px 20px;
+}
+.hero-section-content h1 {
+    font-size: 50px;
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1.44;
+}
+.hero-section-content p {
+    font-size: 18px;
+    color: var(--grey-color);
+}
+
+.hero-section-content .btn {
+    padding: 12px 40px;
+    font-size: 15px;
+    font-weight: 500;
+    text-transform: uppercase;
+
+}
+
+/*======================================hero-section==============================================*/
 
 @media (min-width: 992px) {
     .header .navbar-nav .nav-item:first-child a {
         padding-left: 0;
+    }
+}
+@media (max-width: 992px) {
+    .hero-section {
+        padding-top: 75px;
+        padding-bottom: 75px;
+    }
+    .hero-section-content {
+        width: 70%;
+    }
+    .hero-section-content h1 {
+        font-size: 40px;
+    }
+}
+@media (max-width: 768px) {
+    .header nav {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .hero-section-content h1 {
+        font-size: 30px;
+    }
+    .hero-section-content p {
+        font-size: 16px;
+    }
+}
+@media (max-width: 400px) {
+    .header-icons li:not(:first-child) {
+        margin-left: 10px;
+    }
+    .hero-section-content {
+        width: 100%;
     }
 }
