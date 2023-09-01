@@ -48,14 +48,43 @@
                     </div>
                 </div>
 
-                <ul class="header-icons">
-                    <li><a href=""><span class="icon-user"></span></a></li>
-                    <li><a href=""><span class="icon-favorite"></span></a></li>
-                    <li><a href=""><span class="icon-cart"></span></a></li>
-                </ul>
+                <div id="nav-icons"></div>
 
             </div>
         </nav>
+
+        <ul class="header-icons d-none">
+            <li><a href=""><span class="icon-user"></span></a></li>
+            <li><a href=""><span class="icon-favorite"></span></a></li>
+            <li>
+                <a href="#offcanvasCart" data-bs-toggle="offcanvas">
+                    <span class="icon-cart"></span>
+                </a>
+            </li>
+        </ul>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasCart"
+             aria-labelledby="offcanvasCart" data-bs-theme="dark">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasExampleLabel">Корзина</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div>
+                    Some text as placeholder.
+                </div>
+                <div class="dropdown mt-3">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                        Dropdown button
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
     </header>
     <main class="main">
         <section class="hero-section">
@@ -247,14 +276,16 @@
 
                 <div class="col-12 col-md-3">
                     <ul class="footer-menu list-unstyled">
-                        <li><ul class="footer-icons">
-                            <li><a href=""><span class="icon-instagram"></span></a></li>
-                            <li><a href=""><span class="icon-telegram"></span></a></li>
-                            <li><a href=""><span class="icon-vk"></span></a></li>
-                        </ul></li>
+                        <li>
+                            <ul class="footer-icons">
+                                <li><a href=""><span class="icon-instagram"></span></a></li>
+                                <li><a href=""><span class="icon-telegram"></span></a></li>
+                                <li><a href=""><span class="icon-vk"></span></a></li>
+                            </ul>
+                        </li>
 
-<!--                        <li>© 2023 all rights reserved</li>-->
-<!--                        <li>powered by Shevchuk Nick </li>-->
+                        <!--                        <li>© 2023 all rights reserved</li>-->
+                        <!--                        <li>powered by Shevchuk Nick </li>-->
                     </ul>
                 </div>
             </div>
