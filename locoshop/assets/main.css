@@ -262,6 +262,58 @@ a.active {
 
 /*======================================catalog-section==============================================*/
 
+
+/*======================================footer==============================================*/
+
+.footer {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    border-top: 2px solid var(--dark-color);
+}
+.footer-logo img {
+    max-height: 80px;
+}
+.footer-logo span {
+    font-size: 20px;
+    font-weight: 900;
+    text-transform: uppercase;
+    transition: all .3s;
+}
+.footer-logo :hover > span {
+    color: var(--accent-color);
+}
+.footer-menu {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.footer-menu li {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/*.footer-menu li ul {*/
+/*    margin-bottom: 0;*/
+/*}*/
+
+.footer-icons {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 34px;
+    color: white;
+}
+.footer-icons li {
+    display: inline-block;
+    /*margin-bottom: 0;*/
+}
+
+.footer-icons li:not(:first-child){
+    margin-left: 35px;
+
+}
+/*======================================footer==============================================*/
+
 @media (min-width: 992px) {
     .header .navbar-nav .nav-item:first-child a {
         padding-left: 0;
@@ -292,6 +344,11 @@ a.active {
     .banner-section-img img {
         border-radius: 10px 10px 0 0;
     }
+    .footer-icons {
+        /*font-size: 24px;*/
+        display: flex;
+        justify-content: center;
+    }
 }
 @media (max-width: 768px) {
     .header nav {
@@ -315,6 +372,10 @@ a.active {
     .catalog-section {
         margin-bottom: 40px;
         margin-top: 40px;
+    }
+    .footer-logo-inner {
+        text-align: center;
+        margin-bottom: 30px;
     }
 }
 @media (max-width: 400px) {
