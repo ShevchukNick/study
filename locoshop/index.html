@@ -62,25 +62,49 @@
                 </a>
             </li>
         </ul>
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasCart"
+        <div class="offcanvas offcanvas-end minicart" tabindex="-1" id="offcanvasCart"
              aria-labelledby="offcanvasCart" data-bs-theme="dark">
             <div class="offcanvas-header">
                 <h5 class="offcanvas-title" id="offcanvasExampleLabel">Корзина</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
-                <div>
-                    Some text as placeholder.
+                <div class="minicart-product-row">
+                    <img src="assets/img/joy.png" alt="">
+                    <div class="minicart-product-info">
+                        <p class="product-name">joy steam loco</p>
+                        <p class="product-qty">
+                            <input type="number" value="2"> &times; $22.22
+                        </p>
+                    </div>
+                    <a href="" class="minicart-delete-product">
+                        <span class="icon-bin"></span>
+                    </a>
                 </div>
-                <div class="dropdown mt-3">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                        Dropdown button
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
+                <div class="minicart-product-row">
+                    <img src="assets/img/productimg.png" alt="">
+                    <div class="minicart-product-info">
+                        <p class="product-name">really big loco joyoco</p>
+                        <p class="product-qty">
+                            <input type="number" value="2"> &times; $22.22
+                        </p>
+                    </div>
+                    <a href="" class="minicart-delete-product">
+                        <span class="icon-bin"></span>
+                    </a>
+                </div>
+
+                <hr>
+
+                <div class="minicart-total-price">
+                    <h5>total price: $123.12 </h5>
+                </div>
+
+                <hr>
+
+                <div class="minicart-btn">
+                    <a href="" class="btn btn-secondary">Cart</a>
+                    <a href="" class="btn btn-warning">checkout</a>
                 </div>
             </div>
         </div>
